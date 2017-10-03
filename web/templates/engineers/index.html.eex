@@ -1,0 +1,11 @@
+<h1>Engineers</h1>
+
+<%= for engineer <- @engineers do %>
+  <h3><%= engineer.name %></h3>
+  <p>
+    Email: <%= engineer.email %>
+  </p>
+  <p>
+    Phone: <%= engineer.phone %>
+  </p>
+<% end %>
