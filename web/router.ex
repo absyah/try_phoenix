@@ -18,6 +18,8 @@ defmodule TryPhoenix.Router do
 
     get "/", PageController, :index
     get "/engineers", EngineersController, :index
+    get "/engineers/new", EngineersController, :new
+    post "/engineers", EngineersController, :create
   end
 
   # Other scopes may use custom stacks.
