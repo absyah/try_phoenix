@@ -1,0 +1,11 @@
+<a href="/engineers">Back to engineers</a>
+
+<h1><%= @engineer.name %></h1>
+
+<p>
+  <%= @engineer.email %>
+</p>
+
+<p>
+  <%= @engineer.phone %>
+</p>
