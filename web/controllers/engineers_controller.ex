@@ -6,4 +6,21 @@ defmodule TryPhoenix.EngineersController do
 
     render conn, "index.html", engineers: engineers 
   end
+
+  def new(conn, _params) do
+    engineer = %TryPhoenix.Engineer{name: "", email: "", phone: ""}
+
+    render conn, "new.html", engineer: engineer
+  end
+
+  def create(conn, params) do
+    engineer = %TryPhoenix.Engineer{
+      name: params["engineer"]["name"],
+      email: params["engineer"]["email"],
+      phone: params["engineer"]["phone"]
+    }
+
+    TryPhoenix.Repo.insert!(engineer)
+    redirect conn, to: "/engineers"
+  end
 end
