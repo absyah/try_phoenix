@@ -2,7 +2,11 @@
 <a class="btn btn-default" href="/engineers/new">New Engineer</a>
 
 <%= for engineer <- @engineers do %>
-  <h3><%= engineer.name %></h3>
+  <h3>
+    <%= link to: engineer_path(@conn, :show, engineer) do %>
+      <%= engineer.name %>
+    <% end %>
+  </h3>
   <p>
     Email: <%= engineer.email %>
   </p>

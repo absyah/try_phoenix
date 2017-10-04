@@ -23,4 +23,10 @@ defmodule TryPhoenix.EngineersController do
     TryPhoenix.Repo.insert!(engineer)
     redirect conn, to: "/engineers"
   end
+
+  def show(conn, %{ "id" => id }) do
+    engineer = TryPhoenix.Engineer |> TryPhoenix.Repo.get(id)
+
+    render conn, "show.html", engineer: engineer
+  end
 end
