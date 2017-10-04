@@ -29,4 +29,19 @@ defmodule TryPhoenix.EngineersController do
 
     render conn, "show.html", engineer: engineer
   end
+
+  def edit(conn, %{ "id" => id }) do
+    engineer = TryPhoenix.Engineer |> TryPhoenix.Repo.get(id)
+
+    render conn, "edit.html", engineer: engineer
+  end
+
+  def update(conn, %{ "id" => id, "engineer" => %{ "name" => name, "email" => email, "phone" => phone } }) do
+    engineer = TryPhoenix.Engineer |> TryPhoenix.Repo.get(id)
+
+    Ecto.Changeset.change(engineer, name: name, email: email, phone: phone)
+    |> TryPhoenix.Repo.update!
+
+    conn |> redirect(to: engineer_path(conn, :show, engineer))
+  end
 end

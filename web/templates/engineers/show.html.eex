@@ -2,6 +2,10 @@
 
 <h1><%= @engineer.name %></h1>
 
+<%= link to: engineer_path(@conn, :edit, @engineer) do %>
+  Edit
+<% end %>
+
 <p>
   <%= @engineer.email %>
 </p>

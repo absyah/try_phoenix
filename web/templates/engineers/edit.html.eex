@@ -1,0 +1,15 @@
+<%= form_for @conn, engineer_path(@conn, :update, id: @engineer.id), [as: :engineer, method: :put], fn form -> %>
+  <div class="form-group">
+    <%= label(form, :name, "Name") %>
+    <%= text_input(form, :name, value: @engineer.name, class: "form-control") %>
+  </div>
+  <div class="form-group">
+    <%= label(form, :email, "Email") %>
+    <%= text_input(form, :email, value: @engineer.email, class: "form-control") %>
+  </div>
+  <div class="form-group">
+    <%= label(form, :phone, "Phone") %>
+    <%= text_input(form, :phone, value: @engineer.phone, class: "form-control") %>
+  </div>
+  <%= submit "Save", class: "btn btn-primary" %>
+<% end %>
