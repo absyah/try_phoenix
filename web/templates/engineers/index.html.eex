@@ -13,4 +13,8 @@
   <p>
     Phone: <%= engineer.phone %>
   </p>
+
+  <p>
+    <%= link "Delete", to: engineer_path(@conn, :delete, id: engineer.id), method: :delete %>
+  </p>
 <% end %>

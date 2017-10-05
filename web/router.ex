@@ -23,6 +23,7 @@ defmodule TryPhoenix.Router do
     get "/engineers/:id", EngineersController, :show, as: :engineer
     get "/engineers/:id/edit", EngineersController, :edit, as: :engineer
     put "/engineers", EngineersController, :update, as: :engineer
+    delete "/engineers", EngineersController, :delete, as: :engineer
   end
 
   # Other scopes may use custom stacks.

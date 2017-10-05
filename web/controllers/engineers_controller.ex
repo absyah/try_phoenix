@@ -44,4 +44,12 @@ defmodule TryPhoenix.EngineersController do
 
     conn |> redirect(to: engineer_path(conn, :show, engineer))
   end
+
+  def delete(conn, %{ "id" => id }) do
+    TryPhoenix.Engineer
+    |> TryPhoenix.Repo.get(id)
+    |> TryPhoenix.Repo.delete!
+
+    conn |> redirect(to: engineers_path(conn, :index))
+  end
 end
